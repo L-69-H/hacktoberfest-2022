@@ -1,0 +1,23 @@
+import pandas as pd  
+import numpy as np  
+# importing the KNN from fancyimpute library  
+from fancyimpute import KNN  
+  
+df = pd.DataFrame([[np.nan, 1, np.nan, 0],  
+        [2, 7, np.nan, 1],  
+        [np.nan, np.nan, np.nan, 5],  
+        [np.nan, 8, np.nan, 4],  
+        [9,  7, 8,   2],  
+        [2,  5, 7,   9]],  
+        columns = list('ABCD'))  
+  
+# printing the dataframe  
+print(df)  
+  
+# calling the KNN class  
+knn_imputer = KNN()  
+# imputing the missing value with knn imputer  
+df = knn_imputer.fit_transform(df)  
+  
+# printing dataframe  
+print(df)  
